@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Billing Complaint",
+    "request": "I was charged twice for my credit card payment. Please refund immediately."
+  },
+  {
+    "title": "Profile Update",
+    "request": "Please update my registered mobile number."
+  },
+  {
+    "title": "Password Reset",
+    "request": "How do I reset my password?"
+  },
+  {
+    "title": "Technical Issue",
+    "request": "The application crashes every time I try to log in."
+  },
+  {
+    "title": "Maintenance Request",
+    "request": "Please schedule maintenance for my air conditioner."
+  }
+]
