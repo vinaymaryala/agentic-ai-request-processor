@@ -22,32 +22,34 @@ This project demonstrates an **Agentic AI workflow** where an LLM performs intel
 
 ## Architecture
 
-```
-                    Customer Request
-                           │
-                           ▼
-                  Streamlit User Interface
-                           │
-                           ▼
-                 Gemini AI Request Classifier
-                           │
-         ┌─────────────────┴─────────────────┐
-         │                                   │
-      Router Agent (Intent Routing)
-         │
- ┌───────┼───────────────┐
- │       │               │
- ▼       ▼               ▼
-Complaint Service      Enquiry
- Agent     Agent         Agent
- │          │             │
- └──────────┼─────────────┘
-            │
-            ▼
-      SQLite Persistence
-            │
-            ▼
-     Analytics Dashboard
+```mermaid
+flowchart TD
+
+A[Customer Request]
+B[Streamlit UI]
+C[Gemini AI Classifier]
+D[Router Agent]
+
+E[Complaint Agent]
+F[Service Agent]
+G[Enquiry Agent]
+
+H[(SQLite Database)]
+I[Analytics Dashboard]
+
+A --> B
+B --> C
+C --> D
+
+D --> E
+D --> F
+D --> G
+
+E --> H
+F --> H
+G --> H
+
+H --> I
 ```
 
 ---
@@ -216,14 +218,11 @@ Example:
 
 ## Future Enhancements
 
-- PostgreSQL integration
-- FastAPI backend
-- LangGraph-based multi-agent orchestration
-- Human-in-the-loop approvals
-- Authentication and RBAC
-- Cloud deployment
-- Email/Slack notifications
-- Monitoring and observability
+- Replace SQLite with PostgreSQL for production deployments.
+- Introduce LangGraph or Similar framework for advanced multi-agent orchestration.
+- Add authentication and role-based access control.
+- Integrate email/Slack notifications for workflow updates.
+- Deploy as a scalable cloud service using FastAPI.
 
 ---
 
@@ -244,28 +243,6 @@ SQLite provides lightweight persistence without external infrastructure while ma
 ### Why Streamlit?
 
 Streamlit enables rapid development of an interactive interface suitable for demonstrations and internal tools.
-
----
-
-## Future Production Architecture
-
-```
-Users
-   │
-Load Balancer
-   │
-FastAPI
-   │
-Gemini
-   │
-Router Agent
-   │
-Workflow Agents
-   │
-PostgreSQL
-   │
-Analytics Dashboard
-```
 
 ---
 
